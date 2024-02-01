@@ -10,9 +10,29 @@ body {
   justify-content: center;
 }
 
-.game-board {
+.box {
+  background-color: rgb(253, 253, 252);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  max-width: 80%;
-  margin: 0 auto;
+  grid-template-columns: auto auto auto;
+  height: 400px;
+  width: 400px;
+  padding: 10px;
+  box-shadow: 5px 5px 5px lightblue;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+}
+
+.x {
+  font-size: 50px;
+  font: bold;
+}
+
+.o {
+  font-size: 50px;
+  font: bold;
 }
