@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll('.cell');
 const message = document.querySelector('.message');
 const restart = document.querySelector('.restart');
+var element = document.getElementById('box-style');
 
 let turn0 = true;
 let playerturn = 0;
@@ -41,6 +42,7 @@ function checkWin() {
       &&
       (cells[pattern[0]].innerText) === (cells[pattern[2]].innerText)) {
       message.innerText = cells[pattern[0]].innerText + " won the match";
+      cells[pattern[0]].innerText && (cells[pattern[1]].innerText) && (cells[pattern[2]].innerText) === element.classList.add("cut");
     }
   });
   checkDraw();
