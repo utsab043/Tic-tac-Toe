@@ -1,14 +1,17 @@
 const cells = document.querySelectorAll('.cell');
 const message = document.querySelector('.message');
 const restart = document.querySelector('.restart');
-var element = document.getElementById('box-style');
 
+let isgamefinished = false;
 let turn0 = true;
 let playerturn = 0;
 
 function clickEvent() {
   cells.forEach((cell) => {
     cell.addEventListener("click", () => {
+      if (isgamefinished) {
+        return;
+      }
       if (turn0) {
         cell.innerText = "X";
         turn0 = false;
@@ -42,14 +45,21 @@ function checkWin() {
       &&
       (cells[pattern[0]].innerText) === (cells[pattern[2]].innerText)) {
       message.innerText = cells[pattern[0]].innerText + " won the match";
-      cells[pattern[0]].innerText && (cells[pattern[1]].innerText) && (cells[pattern[2]].innerText) === element.classList.add("cut");
+      cells[pattern[0]].classList.add('cut');
+      cells[pattern[1]].classList.add('cut');
+      cells[pattern[2]].classList.add('cut');
+      isgamefinished = true;
     }
   });
   checkDraw();
 }
 
 function checkDraw() {
-  if (playerturn == 8) {
+  if (isgamefinished) {
+    return;
+  }
+  if ((playerturn == 8)
+  ) {
     message.innerText = "The match ended in a draw";
     message.style.color = "red";
   }
